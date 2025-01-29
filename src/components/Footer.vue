@@ -1,20 +1,35 @@
 <template>
   <v-footer app>
     <v-col class="text-center">
-      <v-btn text :to="'/condicoes-gerais-de-venda'">Condições gerais de venda</v-btn>
-      <v-btn text :to="'/informacao-ao-consumidor'">Informação ao consumidor</v-btn>
-      <v-btn text :to="'/politica-de-privacidade-e-cookies'">Política de privacidade e cookies</v-btn>
-      <v-btn text :to="'/livro-de-reclamacoes-eletronico'">Livro de reclamações eletrónico</v-btn>
+      <img src="/images/logo-small.png" alt="Logo" height="50" />
+      <ul class="footer-list">
+      <li><span @click="showTerms('termsholder')">Condições gerais de venda</span></li>
+      <li>Informação ao consumidor</li>
+      <li><a>Política de privacidade e cookies</a></li>
+      <li><a>Livro de reclamações eletrónico</a></li>
+      </ul>
     </v-col>
   </v-footer>
 </template>
 
 <script setup>
-// You can add any necessary script here if needed
+  function showTerms(id) {
+    const terms = document.getElementById(id);
+    terms.style.display = terms.style.display === 'none' ? 'block' : 'none';
+  }
 </script>
 
 <style scoped>
 .v-btn {
-  margin: 8px;
+  font-size: 12px;
+  margin: 4px 8px;
+}
+.footer-list {
+  list-style-type: none;
+  padding: 0;
+}
+.footer-list li {
+  margin:8px 0;
+  display: inline;
 }
 </style>
