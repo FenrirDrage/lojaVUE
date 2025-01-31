@@ -1,26 +1,29 @@
 <template>
   <v-app-bar app>
-    <v-toolbar-title>Voltlider</v-toolbar-title>
+    <template  v-if="isMobile">
+      <v-toolbar-title>Voltlider</v-toolbar-title>
 
-    <v-spacer></v-spacer>
+      <v-spacer></v-spacer>
 
-    <v-btn v-if="isMobile" v-for="item in menuItems" :key="item.title" :to="item.link" text>
-      {{ item.title }}
-    </v-btn>
-
-    <v-menu v-else v-model="menu" offset-y>
-      <template v-slot:activator="{ props }">
-        <v-btn icon v-bind="props" >
-          <v-icon>mdi-menu</v-icon>
-        </v-btn>
-      </template>
-      <v-list>
-        <v-list-item v-for="item in menuItems" :key="item.title" :to="item.link">
-          <v-list-item-title>{{ item.title }}</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-menu>
-  </v-app-bar>
+      <v-btn v-for="item in menuItems" :key="item.title" :to="item.link" text>
+        {{ item.title }}
+      </v-btn>
+    </template>
+      <v-menu v-else v-model="menu" offset-y>
+        <template v-slot:activator="{ props }">
+          <v-btn icon v-bind="props" >
+            <v-icon>mdi-menu</v-icon>
+          </v-btn>
+        </template>
+        <v-list>
+          <v-list-item v-for="item in menuItems" :key="item.title" :to="item.link">
+            <v-list-item-content>
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+    </v-app-bar>
 </template>
 
 <script setup>
