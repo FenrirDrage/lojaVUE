@@ -34,7 +34,7 @@ const menuItems = [
   { title: 'A empresa', link: '/a-empresa' },
   { title: 'Produtos', link: '/produtos' },
   { title: 'Destaques', link: '/destaques' },
-  { title: 'Carrinho', link: '/carrinho' },
+  //{ title: 'Carrinho', link: '/carrinho' },
   { title: 'Contactos', link: '/contactos' },
 ]
 
